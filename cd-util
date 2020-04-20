@@ -69,4 +69,4 @@ while true; do
         check_pull
         sleep $DELAY
 done
-     
+
