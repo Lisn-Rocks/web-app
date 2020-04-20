@@ -1,0 +1,72 @@
+#!/bin/bash
+
+#
+# Usage:
+#     ./cd-util /path/to/lisn-web-app 1h
+#                                     ^
+#                      Delay used by the sleep command
+# The `sleep` command: https://www.lifewire.com/use-linux-sleep-command-3572060
+#
+# This bash script provides basic Continuous Deployment functionality.
+# It is meant to be run on the server where your Lisn Web App is stored.
+#
+# It is very simple, all it does is:
+#     1. Run `git pull` and see if any changes were found
+#     2. If changes were found, run `npm run build`
+#
+# You may use it within a screen session. For example:
+#     ~$ screen -S lisn-web-app-cd
+#     (lisn-web-app-cd) ~$ cd /path/to/lisn-web-app
+#     (lisn-web-app-cd) lisn-web-app$ ./cd-util ./ 1h > cd-log &
+#
+# At this point, detach from the session using `Ctrl+A D` and cd-util will be
+# seemlessly working, updating your code.
+#
+
+
+
+# Command Line Arguments
+
+PROJ=$1
+
+DELAY=$2
+
+
+
+# Setup
+
+if [ ! -d "$PROJ" ]; then
+        echo "Folder $PROJ does not exist"
+        exit
+fi
+
+if [ "$DELAY" = "" ]; then
+        DELAY=30m
+fi
+
+cd $PROJ
+
+
+
+# Check Pull Request
+
+function check_pull {
+        pull_result=$(git pull)
+
+        if [ "$pull_result" != "Already up to date." ]; then
+                echo "$(date): Gotta build it now!"
+                npm run build
+        else
+                echo "$(date): Nothing interesting..."
+        fi
+}
+
+
+
+# Main Loop
+
+while true; do
+        check_pull
+        sleep $DELAY
+done
+     
