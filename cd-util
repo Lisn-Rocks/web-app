@@ -33,6 +33,12 @@ DELAY=$2
 
 
 
+# Start log
+
+echo "$(date): Starting with PROJ: $PROJ and DELAY: $DELAY"
+
+
+
 # Setup
 
 if [ ! -d "$PROJ" ]; then
