@@ -68,7 +68,7 @@ these:
 
 
 
-## Serve or Build
+## Build and Serve
 
 ```bash
 npm run build   # builds optimised development version
@@ -83,6 +83,8 @@ are used to populate `publicPath` and `outputDir` fields in that same file.
 >
 > Make sure that `ROOT` is assigned correct path to the folder that contains
 > `storage` and `pub` folders related to your [Lisn Server].
+
+Once you've built everything, your server will be able to serve it.
 
 
 
