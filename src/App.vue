@@ -104,10 +104,9 @@ export default {
   --main-section-height: 100vh;
 
   /* Song Tile */
-  --song-tile-height: 75px;
-  --song-title-font-size: 18px;
-  --song-artist-font-size: 14px;
-  --song-duration-font-size: 16px;
+  --song-tile-height: 60px;
+  --song-title-font-size: 16px;
+  --song-artist-font-size: 12px;
 
   /* Player Minimized */
   --player-minimized-height: 65px;
