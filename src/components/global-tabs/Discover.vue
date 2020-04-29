@@ -41,12 +41,18 @@ export default {
         `${Config.ROUTE}/api/random`,
         { method: 'GET', redirect: 'follow'}
       )
-      return await r.json()
+
+      let json = await r.json()
+
+      // Loading chamber here so as to allow calls to fetchRandomSong to be
+      // completely asynchronous. If we were to return json data, caller would
+      // have to await, which harms concurrency.
+      this.songs.load(json)
     },
 
     async fetchRandomSongsChamber(n) {
       for (let i = 0; i < n; i++)
-        this.songs.load(await this.fetchRandomSong())
+        this.fetchRandomSong()
     }
   }
 }
