@@ -8,4 +8,4 @@ const APP = '/pub/lisn'
 module.exports = {
   publicPath: APP,
   outputDir: ROOT + APP,
-};
+}
