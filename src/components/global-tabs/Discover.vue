@@ -32,7 +32,7 @@ export default {
   },
 
   created() {
-    this.fetchRandomSongsChamber(5)
+    this.fetchRandomSongsChamber(10)
   },
 
   methods: {
