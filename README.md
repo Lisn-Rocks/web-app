@@ -74,17 +74,41 @@ these:
 npm run build   # builds optimised development version
 ```
 
-In [vue.config.js] you will find `const ROOT` and `const APP`. These constants
-are used to populate `publicPath` and `outputDir` fields in that same file.
+You need to create your own custom `vue.config.js` file for building, especially
+if you are using [Lisn Web App] with [Lisn Server] in its original form.
 
-[vue.config.js]: vue.config.js
+[Lisn Web App]: https://github.com/sharpvik/lisn-web-app
+
+This is how my `vue.config.js` file looks like (you can literally `Copy + Paste`
+from here):
+
+```js
+'use strict';
+
+//! BEFORE BUILDING FOR PRODUCTION
+//! `ROOT` MUST BE CHANGED APPROPRIATELY
+const ROOT = '/home/user/Public/Lisn'
+const APP = '/pub/lisn'
+
+module.exports = {
+  publicPath: APP,
+  outputDir: ROOT + APP,
+}
+```
+
+The `const ROOT` and `const APP` are used to populate `publicPath` and
+`outputDir` fields.
 
 > Do *not* alter `APP` if you are running the default version of [Lisn Server].
->
-> Make sure that `ROOT` is assigned correct path to the folder that contains
+
+> Make sure that `ROOT` is assigned correct path to the folder that contains the
 > `storage` and `pub` folders related to your [Lisn Server].
 
 Once you've built everything, your server will be able to serve it.
+
+The `vue.config.js` file was excluded from the repo because its presense makes
+continuous deployment harder as we'd have to maintain a separate branch for the
+server where the only difference from master is this file...
 
 
 

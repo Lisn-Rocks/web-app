@@ -1,8 +1,12 @@
+# Automatically generated folders
 .DS_Store
 node_modules
-/dist
+dist
 
-# local env files
+# Machine-specific config files
+vue.config.js
+
+# Local env files
 .env.local
 .env.*.local
 
