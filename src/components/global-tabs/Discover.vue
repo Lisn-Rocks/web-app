@@ -9,11 +9,13 @@
       </div>
     </section>
 
+    <TileCarousel :albums="albums"/>
     <SongsList :songs="songs"/>
   </div>
 </template>
 
 <script>
+import TileCarousel from '../universal/TileCarousel.vue'
 import SongsList from '../universal/SongsList.vue'
 import { Chamber } from '../../classes/Chamber.js'
 import Config from '../../config.js'
@@ -22,17 +24,20 @@ export default {
   name: 'Discover',
 
   components: {
+    TileCarousel,
     SongsList
   },
 
   data() {
     return {
-      songs: new Chamber()
+      songs: new Chamber(),
+      albums: [ 20, 59, 1 ]
     }
   },
 
   created() {
-    this.fetchRandomSongsChamber(10)
+    for (let i = 0; i < 10; i++)
+      this.fetchRandomSong()
   },
 
   methods: {
@@ -48,11 +53,6 @@ export default {
       // completely asynchronous. If we were to return json data, caller would
       // have to await, which harms concurrency.
       this.songs.load(json)
-    },
-
-    async fetchRandomSongsChamber(n) {
-      for (let i = 0; i < n; i++)
-        this.fetchRandomSong()
     }
   }
 }
