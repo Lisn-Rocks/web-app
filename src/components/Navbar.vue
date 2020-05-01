@@ -29,6 +29,7 @@ nav {
   position: fixed;
   width: calc(100vw - var(--navbar-sideways-padding) * 2);
   bottom: 0;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   -webkit-box-shadow: 0px -3px 20px 0px rgba(0,0,0,0.16);
