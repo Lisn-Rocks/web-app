@@ -4,7 +4,7 @@ This web app (written in [Vue.js]) compiles down to static **HTML**, **CSS**,
 and **JS** files that are to be served by the [Lisn Server].
 
 [Vue.js]: https://vuejs.org
-[Lisn Server]: https://github.com/sharpvik/lisn-server
+[Lisn Server]: https://github.com/Lisn-Rocks/server
 
 
 
@@ -46,7 +46,7 @@ phrase is a cliché but trust me, any contribution you make
 **Scout through the [Issues]**, look for the ones you think you can fix and
 *go ahead*.
 
-[Issues]: https://github.com/sharpvik/lisn-web-app/issues
+[Issues]: https://github.com/Lisn-Rocks/web-app/issues
 
 Found a bug? -- **create a new issue** for the rest of us to see.
 
@@ -64,7 +64,7 @@ these:
 - [Lisn Design] - all graphics realted stuff
 
 [Go]: https://golang.org
-[Lisn Design]: https://github.com/sharpvik/lisn-design
+[Lisn Design]: https://github.com/Lisn-Rocks/design
 
 
 
@@ -77,7 +77,7 @@ npm run build   # builds optimised development version
 You need to create your own custom `vue.config.js` file for building, especially
 if you are using [Lisn Web App] with [Lisn Server] in its original form.
 
-[Lisn Web App]: https://github.com/sharpvik/lisn-web-app
+[Lisn Web App]: https://github.com/Lisn-Rocks/web-app
 
 This is how my `vue.config.js` file looks like (you can literally `Copy + Paste`
 from here):
@@ -87,7 +87,7 @@ from here):
 
 //! BEFORE BUILDING FOR PRODUCTION
 //! `ROOT` MUST BE CHANGED APPROPRIATELY
-const ROOT = '/home/user/Public/Lisn'
+const ROOT = '/home/user/Public/lisn'
 const APP = '/pub/lisn'
 
 module.exports = {
